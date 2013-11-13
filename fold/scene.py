@@ -37,9 +37,8 @@ class Scene:
             if type(ai) != type(bi):
                 close=False
                 break
-            elif type(ai)==float64:
-                if abs(ai-bi)>tol:
-                    close = False
+            elif type(ai)==float64 and abs(ai-bi)>tol:
+                close = False
                 break
             elif ai!=bi:
                 close=False
@@ -105,8 +104,9 @@ class Scene:
         file.close()
         return
 
-    def display(self,prog='display'):
-        os.system("%s %s &" % (prog,self.svgname))
+        
+    def display(self,prog='/Applications/Google\ Chrome.app/'): #browser of choice
+        os.system("open -a %s %s" % (prog,self.svgname))
         return
 
     def convert(self,format='.ps'):

@@ -15,7 +15,7 @@ class Arc(Shape):
     def __repr__(self):
         return 'Arc([%f,%f],%f,%f,%f)'%(self.center[0],self.center[1],self.radius,self.th1,self.th2)
     def translate(self,v): 
-        return Arc(asarray(self.censter)+asarray(v),self.radius,self.th1,self.th2)
+        return Arc(asarray(self.center)+asarray(v),self.radius,self.th1,self.th2)
     def rotate(self,p,t): 
         return Arc(rotate_p(asarray(self.center),p,t),self.radius,self.th1+t,self.th2+t)
     def mirror(self,p,v): 
